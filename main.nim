@@ -1,6 +1,12 @@
 import parseopt
 import os
 
+proc readFromFile(path: string): string = 
+  var file = open(path, fmRead)
+  defer:
+    close(file)
+  return file.readAll()
+
 var 
   p = initOptParser()
   voiceDirectory = ""
