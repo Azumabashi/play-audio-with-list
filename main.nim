@@ -1,8 +1,6 @@
 import parseopt
 import os
-import lib/[toml, types]
 
-var tomlPath = ""
 var p = initOptParser()
 while true:
   p.next()
@@ -10,14 +8,6 @@ while true:
   of cmdEnd:
     break
   of cmdArgument:
-    tomlPath = p.val
+    continue
   else:
     continue
-if tomlPath.len == 0:
-  echo "error: config path must be specified."
-  quit(1)
-elif fileExists(tomlPath):
-  echo "error: config file does not exist."
-  quit(1)
-
-let options = readFromToml(tomlPath)
