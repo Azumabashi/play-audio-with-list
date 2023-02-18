@@ -24,3 +24,6 @@ while true:
 if dirExists(voiceDirectory):
   echo "directory ", voiceDirectory, " does not exist."
   quit(1)
+if fileExists(questionFile):
+  echo "file ", questionFile, " does not exist."
+  quit(1)
