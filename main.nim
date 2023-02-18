@@ -1,5 +1,6 @@
 import parseopt
 import os
+import re
 
 proc readFromFile(path: string): string = 
   var file = open(path, fmRead)
@@ -33,3 +34,7 @@ if dirExists(voiceDirectory):
 if fileExists(questionFile):
   echo "file ", questionFile, " does not exist."
   quit(1)
+
+let 
+  questions = readFromFile(questionFile)
+  voiceFiles = findAll(questions, re(regexStr))
