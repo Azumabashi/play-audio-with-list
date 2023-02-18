@@ -12,7 +12,7 @@ var
   p = initOptParser()
   voiceDirectory = ""
   questionFile = ""
-  regexStr = ""
+  regexStr = re"[\d+]"  # LaTeX description environment style
 while true:
   p.next()
   case p.kind
@@ -24,7 +24,7 @@ while true:
     elif p.key == "question":
       questionFile = p.val
     elif p.key == "regex":
-      regexStr = p.val
+      regexStr = re(p.val)
   else:
     continue
 
@@ -37,4 +37,4 @@ if fileExists(questionFile):
 
 let 
   questions = readFromFile(questionFile)
-  voiceFiles = findAll(questions, re(regexStr))
+  voiceFiles = findAll(questions, regexStr)
