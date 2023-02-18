@@ -1,4 +1,5 @@
 import parsetoml
+import re
 import types
 
 proc readFromToml*(option: var Options, path: string) = 
@@ -7,3 +8,5 @@ proc readFromToml*(option: var Options, path: string) =
     option.dirPath = parsedToml["path"].getStr()
   if parsedToml.hasKey("interval"):
     option.interval = parsedToml["interval"].getInt()
+  if parsedToml.hasKey("regex"):
+    option.regex = re(parsedToml["regex"].getStr())
