@@ -20,3 +20,7 @@ while true:
       regexStr = p.val
   else:
     continue
+
+if dirExists(voiceDirectory):
+  echo "directory ", voiceDirectory, " does not exist."
+  quit(1)
