@@ -28,10 +28,10 @@ while true:
   else:
     continue
 
-if dirExists(voiceDirectory):
+if not dirExists(voiceDirectory):
   echo "directory ", voiceDirectory, " does not exist."
   quit(1)
-if fileExists(questionFile):
+if not fileExists(questionFile):
   echo "file ", questionFile, " does not exist."
   quit(1)
 
