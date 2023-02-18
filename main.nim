@@ -1,5 +1,6 @@
 import parseopt
 import os
+import lib/[toml, types]
 
 var tomlPath = ""
 var p = initOptParser()
@@ -18,3 +19,5 @@ if tomlPath.len == 0:
 elif fileExists(tomlPath):
   echo "error: config file does not exist."
   quit(1)
+
+let options = readFromToml(tomlPath)
